@@ -21,6 +21,7 @@ export default function Game() {
     "let's start our adventure if u're ready!"
   );
   const [loading, setLoading] = useState<boolean>(false);
+  const [loadingBtn, setLoadingBtn] = useState<boolean>(false);
   const [choices, setChoices] = useState<string[]>([
     "describe scenery and start game",
   ]);
@@ -114,6 +115,7 @@ export default function Game() {
         choicesText += chunk;
       }
     }
+    setLoadingBtn(false);
     setChoices(choicesText.split("@").filter((str) => str.trim() !== ""));
     addToChatHistory("game master:" + query);
     reset();
@@ -173,8 +175,16 @@ export default function Game() {
       </div>
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="rounded-lg p-4 z-10 bg-black/50 flex flex-col items-center w-full max-w-[800px] gap-2"
+        className="relative rounded-lg p-4 z-10 bg-black/50 flex flex-col items-center w-full max-w-[800px] gap-2"
       >
+        {loadingBtn && (
+          <div className="absolute inset-0 flex justify-center items-center bg-black/70 z-30">
+            <div
+              className="h-8 w-8 animate-spin rounded-full border-4 border-solid border-white border-r-transparent"
+              role="status"
+            ></div>
+          </div>
+        )}
         {choices.map((item, index) => (
           <div key={index} className="w-full hover:scale-105 flex sm:w-4/5">
             <Image
@@ -189,6 +199,7 @@ export default function Game() {
 
             <button
               type="submit"
+              onClick={() => setLoadingBtn(true)}
               className="bg-black/50 rounded-md text-sm py-1 px-2 border w-full border-[rgb(238,179,114)]"
             >
               {item}
