@@ -6,4 +6,5 @@ This project is designed for demonstration purposes and may contain bugs or area
 
 #### Contributors
 
-[Alper Yazagan](https://github.com/Alperadoss) [Anıl Berk Altuner](https://github.com/anilaltuner)
+[Alper Yazagan](https://github.com/Alperadoss) <br>
+[Anıl Berk Altuner](https://github.com/anilaltuner)
