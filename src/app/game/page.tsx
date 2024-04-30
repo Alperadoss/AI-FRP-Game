@@ -62,7 +62,7 @@ export default function Game() {
  Make the game easy difficulty.
  In each step give 3 choices to user to select one of them. start choices with @ sign. Do not use @ sign anywhere else.
  create only one turn at a time and use previous answers for context.
- Include some elements from Emperor's Soul book in the game.
+ Include some elements from context.
  You only talk as a game master and I will play as a player.
  Game will be 10 turns in total.
  Your chat has user decisions of turns. Understand that user's decision give them to next turn's decision options
